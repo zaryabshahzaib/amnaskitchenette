@@ -67,6 +67,10 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        .embed-responsive-210by297 {
+            padding-bottom: 141.42%;
+        }
     </style>
 </head>
 
@@ -76,31 +80,29 @@
 
             <img src="assets/Logo.png" width="70%" height="auto" class="mt-5 mb-5" />
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-3">
 
                 <div class="links col-sm-3">
-                    <a href="/menu.html" style="font-size: 20px;">Menu</a>
+                    <a href="/" style="font-size: 20px;">Back</a>
                 </div>
 
                 <div class="links col-sm-3">
-                    <a href="https://wa.me/923335034054" style="font-size: 20px" target="_blank">Contact</a>
+                    <a href="/static/Menu.pdf" style="font-size: 20px" target="_blank">Download</a>
                 </div>
-
-                <div class="links col-sm-3">
-                    <a href="https://www.facebook.com/amnaskitchenetteofficial/" style="font-size: 20px"
-                        target="_blank">Facebook</a>
-                </div>
-
-                <div class="links col-sm-3">
-                    <a href="https://www.instagram.com/amnaskitchenetteofficial/" style="font-size: 20px"
-                        target="_blank">Instagram</a>
-                </div>
-
             </div>
 
+            <div class="embed-responsive embed-responsive-210by297">
+                <object class="embed-responsive-item" data="/static/Menu.pdf?#zoom=50&scrollbar=1&toolbar=1&navpanes=1"
+                    type="application/pdf" internalinstanceid="9" title="">
+                    <p>
+                        Your browser isn't supporting embedded pdf files. You can download the file
+                        <a href="/static/Menu.pdf">here</a>.
+                    </p>
+                </object>
+            </div>
         </div>
-
         <div>
+
 </body>
 
 </html>
