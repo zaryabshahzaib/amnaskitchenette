@@ -6,16 +6,19 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
-    pageNumPending = null,
-    scale = 1.0;
+    pageNumPending = null;
 
 function renderPage(num, canvas) {
     var ctx = canvas.getContext('2d');
     pageRendering = true;
     // Using promise to fetch the page
     pdfDoc.getPage(num).then(function (page) {
-        var viewport = page.getViewport({ scale: scale });
-        console.log(viewport.height, viewport.width)
+        var container = document.getElementById('canvases');
+        var viewport = page.getViewport({ scale: 1 });
+        var scale = container.clientWidth / viewport.width;
+        console.log(container.clientWidth, viewport.width)
+        viewport = page.getViewport({ scale: scale });
+
         canvas.height = viewport.height;
         canvas.width = viewport.width;
 
@@ -43,12 +46,12 @@ pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
 
     const pages = parseInt(pdfDoc.numPages);
 
-    var canvasHtml = '';
-    for (var i = 0; i < pages; i++) {
-        canvasHtml += '<canvas id="canvas_' + i + '"></canvas>';
-    }
+    // var canvasHtml = '';
+    // for (var i = 0; i < pages; i++) {
+    //     canvasHtml += '<canvas id="canvas_' + i + '"></canvas>';
+    // }
 
-    document.getElementById('canvases').innerHTML = canvasHtml;
+    // document.getElementById('canvases').innerHTML = canvasHtml;
 
     for (var i = 0; i < pages; i++) {
         var canvas = document.getElementById('canvas_' + i);
