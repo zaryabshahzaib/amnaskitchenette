@@ -7,7 +7,7 @@ var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
     pageNumPending = null,
-    scale = 0.5;
+    scale = 1.0;
 
 function renderPage(num, canvas) {
     var ctx = canvas.getContext('2d');
